@@ -19,6 +19,9 @@ app.get('/', (req, res) => {
     res.send('home')
 })
 
+app.use(express.json())
+
+
 
 //CONNECT TO MONGODB//////////////////////////
 
@@ -29,3 +32,9 @@ mongoose.connect(process.env.MDB_CONNECT, {
     if (err) return console.log(err);
     console.log('connected to mongodb');
 }))
+
+
+
+///////SET UP ROUTES
+
+app.use('/auth', require('./routers/userRouter'));
