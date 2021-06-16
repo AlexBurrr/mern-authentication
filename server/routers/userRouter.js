@@ -54,7 +54,7 @@ router.post('/', async (req, res) => {
         }, process.env.JWT_SECRET)
 
 
-        console.log(`token ${token}`);
+
 
 
         //SEND THE TOKEN IN A HTTP-ONLY COOKIE
@@ -115,6 +115,9 @@ router.post('/login', async (req, res) => {
         res.status(500).send();
     }
 })
+
+
+/////LOG OUT////////////////////////////////////
 
 router.get('/logout', (req, res) => {
     res.cookie("token", "", {
