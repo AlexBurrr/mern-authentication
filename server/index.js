@@ -1,7 +1,7 @@
 const express = require('express')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
-
+const cookieParser = require('cookie-parser')
 
 dotenv.config();
 
@@ -20,6 +20,7 @@ app.get('/', (req, res) => {
 })
 
 app.use(express.json())
+app.use(cookieParser())
 
 
 
@@ -38,3 +39,4 @@ mongoose.connect(process.env.MDB_CONNECT, {
 ///////SET UP ROUTES
 
 app.use('/auth', require('./routers/userRouter'));
+app.use('/customer', require('./routers/customerRouter'))
